@@ -44,7 +44,8 @@
     </div>
 
     <div class="mt-8 flex justify-center flex-wrap gap-2 items-center">
-      <button @click="prevPage" :disabled="currentPage === 1" class="px-3 py-1  disabled:opacity-50"> < </button>
+      <button @click="prevPage" :disabled="currentPage === 1" class="px-3 py-1  disabled:opacity-50">
+        < </button>
 
           <button v-for="page in totalPages" :key="page" @click="currentPage = page" class="px-3 py-1 " :class="{
             'bg-white text-gray-700': currentPage !== page
@@ -116,7 +117,7 @@ const fetchPosts = async () => {
   loading.value = true
   try {
     const response = await fetch(
-      `/api/ideas?page[number]=${currentPage.value}&page[size]=${perPage.value}&append[]=small_image&append[]=medium_image&sort=${sortOrder.value === 'newest' ? '-published_at' : 'published_at'}`,
+      `https://suitmedia-backend.suitdev.com/api/ideas?page[number]=${currentPage.value}&page[size]=${perPage.value}&append[]=small_image&append[]=medium_image&sort=${sortOrder.value === 'newest' ? '-published_at' : 'published_at'}`,
       {
         method: 'GET',
         headers: {
