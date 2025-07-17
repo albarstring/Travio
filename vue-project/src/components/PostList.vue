@@ -60,6 +60,7 @@
 </template>
 
 <script setup>
+import axios from 'axios'
 import { ref, computed, watch, onMounted } from 'vue'
 
 // Konstanta
@@ -116,10 +117,15 @@ watch([perPage, sortOrder, currentPage], () => {
 const fetchPosts = async () => {
   loading.value = true
   try {
-    const response = await fetch(
-      `https://suitmedia-backend.suitdev.com/api/ideas?page[number]=${currentPage.value}&page[size]=${perPage.value}&append[]=small_image&append[]=medium_image&sort=${sortOrder.value === 'newest' ? '-published_at' : 'published_at'}`,
+    const response = await axios.get(
+      'https://suitmedia-backend.suitdev.com/api/ideas',
       {
-        method: 'GET',
+        params: {
+          'page[number]': currentPage.value,
+          'page[size]': perPage.value,
+          'append[]': ['small_image', 'medium_image'],
+          sort: sortOrder.value === 'newest' ? '-published_at' : 'published_at'
+        },
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -127,7 +133,7 @@ const fetchPosts = async () => {
       }
     )
 
-    const data = await response.json()
+    const data = response.data
 
     if (!data?.data) {
       console.error('Response tidak valid:', data)

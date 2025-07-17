@@ -1,13 +1,6 @@
-import { fileURLToPath, URL } from 'node:url'
-
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-// https://vite.dev/config/
+// vite.config.js
 export default defineConfig({
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -18,8 +11,8 @@ export default defineConfig({
       '/api': {
         target: 'https://suitmedia-backend.suitdev.com',
         changeOrigin: true,
-        secure: false
-        // Baris 'rewrite' dihapus dari sini
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '/api')
       }
     }
   }
