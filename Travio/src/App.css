@@ -1,0 +1,20 @@
+/* Optional local styles; Tailwind handles most styling */
+.logo {
+  height: 6rem;
+  padding: 1.5rem;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
