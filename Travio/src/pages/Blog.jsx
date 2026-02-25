@@ -51,7 +51,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="w-full bg-gray-50">
+    <div className="w-full relative overflow-x-hidden bg-gray-50">
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
