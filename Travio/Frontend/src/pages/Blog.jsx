@@ -1,4 +1,16 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Blog() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   const blogPosts = [
     {
       id: 1,
@@ -55,8 +67,8 @@ export default function Blog() {
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Travio Blog</h1>
-          <p className="text-xl opacity-90">
+          <h1 className="text-5xl font-bold mb-4" data-aos="fade-up">Travio Blog</h1>
+          <p className="text-xl opacity-90" data-aos="fade-up" data-aos-delay="100">
             Latest insights, tips, and trends in digital advertising
           </p>
         </div>
@@ -68,6 +80,8 @@ export default function Blog() {
           {blogPosts.map((post) => (
             <article
               key={post.id}
+              data-aos="fade-up"
+              data-aos-delay={post.id * 100}
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition cursor-pointer"
             >
               <div className="bg-gradient-to-br from-blue-400 to-indigo-600 h-40 flex items-center justify-center">
@@ -101,7 +115,7 @@ export default function Blog() {
       {/* Newsletter */}
       <section className="w-full bg-white py-16">
         <div className="max-w-2xl mx-auto px-4">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-12 rounded-lg text-center">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-12 rounded-lg text-center" data-aos="fade-up">
             <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
             <p className="mb-6 opacity-90">
               Get the latest updates and insights delivered to your inbox
@@ -123,8 +137,8 @@ export default function Blog() {
       {/* Categories */}
       <section className="w-full px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Browse by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8" data-aos="fade-up">Browse by Category</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" data-aos="fade-up" data-aos-delay="100">
             {['Marketing', 'Trends', 'Publishing', 'Strategy', 'Tools', 'Case Studies'].map((cat) => (
               <button
                 key={cat}

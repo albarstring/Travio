@@ -44,7 +44,7 @@ export default function Home() {
       <section className="relative w-full h-screen">
         <div className="relative z-10 max-w-6xl mx-auto px-4 h-full flex flex-col justify-center items-center text-white text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up">
-            <span className={`transition-opacity duration-300 ${isLabelFading ? 'opacity-0' : 'opacity-100'}`}>
+            <span>
               HALLO
             </span>
             <span
@@ -115,7 +115,7 @@ export default function Home() {
             </button>
           </div>
           <div data-aos="fade-left">
-            <img src="/bahan/Images-2.webp" alt="Billboard Dashboard" className="w-full transition-transform duration-300 ease-out hover:scale-105" />
+            <img src="/bahan/billboard.webp" alt="Billboard Dashboard" className="w-full transition-transform duration-300 ease-out hover:scale-105" />
           </div>
         </div>
       </section>

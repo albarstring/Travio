@@ -1,4 +1,16 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Pricing() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   const features = [
     "Brand Awareness",
     "Free Cetak Banner",
@@ -50,6 +62,7 @@ export default function Pricing() {
                 className="text-center md:text-left text-white 
                 order-2 md:order-1 
                 max-w-xl mx-auto md:mx-0 md:pr-4"
+                data-aos="fade-right"
               >
                 <h1 className="text-4xl md:text-5xl font-medium leading-tight mb-4">
                   Pasang iklan & analisa <br />
@@ -77,7 +90,7 @@ export default function Pricing() {
               </div>
 
               {/* KANAN — IMAGE */}
-              <div className="relative flex justify-center md:justify-end order-1 md:order-2">
+              <div className="relative flex justify-center md:justify-end order-1 md:order-2" data-aos="fade-left">
                 <img
                   src="/bahan/price.png"
                   alt="Price"
@@ -92,7 +105,7 @@ export default function Pricing() {
       <section className="bg-black py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center  mb-40 text-white">
-            <h2 className="text-5xl md:text-6xl font-bold">
+            <h2 className="text-5xl md:text-6xl font-bold" data-aos="fade-up">
               Pilih paket Media yang pas untuk <br />{" "}
               <span className="text-[#A8DF34]">Brand Anda</span>
             </h2>
@@ -103,7 +116,7 @@ export default function Pricing() {
 
           <div className="grid md:grid-cols-3 gap-8 items-start">
             {/* Card Basic */}
-            <div className="bg-[#121212] rounded-2xl p-8 text-white shadow-lg min-h-[700px]">
+            <div className="bg-[#121212] rounded-2xl p-8 text-white shadow-lg min-h-[700px]" data-aos="fade-up" data-aos-delay="100">
               <h3 className="text-2xl font-bold text-center border-b-2 pb-4 mb-2 ">
                 Basic
               </h3>
@@ -143,7 +156,7 @@ export default function Pricing() {
             </div>
 
             {/* Card Pro */}
-            <div className="relative bg-[#121212] rounded-2xl p-8 text-white border border-lime-400 shadow-xl scale-105 min-h-[800px]">
+            <div className="relative bg-[#121212] rounded-2xl p-8 text-white border border-lime-400 shadow-xl scale-105 min-h-[800px]" data-aos="fade-up" data-aos-delay="200">
               {/* Badge */}
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#A8DF34] text-black px-6 py-1 rounded-full text-sm font-bold">
                 TERPOPULER
@@ -200,7 +213,7 @@ export default function Pricing() {
             </div>
 
             {/* Card Enterprise */}
-            <div className="bg-[#121212] rounded-2xl p-8 text-white shadow-lg min-h-[820px]">
+            <div className="bg-[#121212] rounded-2xl p-8 text-white shadow-lg min-h-[820px]" data-aos="fade-up" data-aos-delay="300">
               <h3 className="text-2xl font-bold text-center border-b-2 pb-4 mb-2">
                 Enterprise
               </h3>
@@ -257,7 +270,7 @@ export default function Pricing() {
       <section className="bg-black text-white py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* TITLE */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
               Bandingkan Paket
             </h2>
@@ -393,7 +406,7 @@ export default function Pricing() {
       </section>
 
       <section className="w-full bg-black text-white py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-20" data-aos="fade-up">
           Tersedia di semua paket
         </h2>
 
@@ -436,7 +449,7 @@ export default function Pricing() {
       {/* CTA Section */}
       <section className="w-full bg-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center py-20">
-          <h2 className="text-lg sm:text-xl md:text-2xl text-black font-bold mb-6 leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl text-black font-bold mb-6 leading-tight" data-aos="fade-up">
             TRAVIO AKAN SELALU MEMBERIKAN LAYANAN SEWA MEDIA IKLAN TERBAIK TERMASUK TRANSPARANSI INFORMASI 
           </h2>
           <p className="text-gray-600 mb-8">

@@ -1,4 +1,16 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function MediaOwner() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   return (
      <div className="w-full relative overflow-x-hidden bg-[#060606]">
       {/* Hero Section */}
@@ -12,15 +24,15 @@ export default function MediaOwner() {
         
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-4">MEDIA OWNER</h1>
-          <p className="text-lg font-bold md:text-lg tracking-wide">TINGKATKAN NILAI SEWA BILLBOARD ANDA DENGAN DUKUNGAN DATA PERFORMA</p>
+          <h1 className="text-5xl sm:text-6xl font-bold mb-4" data-aos="fade-up">MEDIA OWNER</h1>
+          <p className="text-lg font-bold md:text-lg tracking-wide" data-aos="fade-up" data-aos-delay="100">TINGKATKAN NILAI SEWA BILLBOARD ANDA DENGAN DUKUNGAN DATA PERFORMA</p>
         </div>
       </section>
 
       {/* Billboard Rental Section */}
       <section className="w-full bg-white py-12 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl text-black font-bold text-left mb-6">
+          <h2 className="text-2xl md:text-3xl text-black font-bold text-left mb-6" data-aos="fade-up">
             BUAT REVENUE STREAM BARU DENGAN LEBIH CEPAT DAN OPTIMALKAN LOKASI OOH ANDA DENGAN <span className="text-[#A8DF34]">DATA ANALISIS  PERFORMA</span>
           </h2>
           <p className="text-gray-700 text-wrap text-left mb-12 max-w-6xl leading-relaxed">
@@ -31,10 +43,10 @@ export default function MediaOwner() {
           <div className="grid md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
-            <div className="bg-white shadow-lg text-center">
+            <div className="bg-white shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
               {/* Header Icon */}
               <div className="bg-[#A8DF34] py-6 flex justify-center overflow-hidden">
-                <img src="/public/bahan/pintu.png" alt="" className="h-8 w-8 scale-125" />
+                <img src="/bahan/pintu.png" alt="" className="h-8 w-8 scale-125" />
               </div>
 
               {/* Content */}
@@ -49,7 +61,7 @@ export default function MediaOwner() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white shadow-lg text-center">
+            <div className="bg-white shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
               <div className="bg-[#A8DF34] py-6 flex justify-center overflow-hidden">
                 <img src="/bahan/snow.png" alt="" className="h-8 w-8 scale-125" />
               </div>
@@ -64,7 +76,7 @@ export default function MediaOwner() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white shadow-lg text-center">
+            <div className="bg-white shadow-lg text-center" data-aos="fade-up" data-aos-delay="300">
               <div className="bg-[#A8DF34] py-6 flex justify-center overflow-hidden">
                 <img src="/bahan/edit.png" alt="" className="h-8 w-8 scale-125" />
               </div>
@@ -85,8 +97,8 @@ export default function MediaOwner() {
       {/* How It Works Section */}
       <section className="w-full bg-black text-white py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-left mb-8">
-            BBEKERJA SAMA DENGAN KAMI, <span className="text-[#A8DF34]">ALUR PENDAFTARAN MEDIA</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-left mb-8" data-aos="fade-up">
+            BEKERJA SAMA DENGAN KAMI, <span className="text-[#A8DF34]">ALUR PENDAFTARAN MEDIA</span>
           </h2>
 
           <p className="text-left text-gray-300 mb-16 max-w-6xl">
@@ -97,12 +109,12 @@ export default function MediaOwner() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-20">
 
             {/* IMAGE */}
-            <div className="flex justify-center">
+            <div className="flex justify-center" data-aos="fade-right">
               <img src="/bahan/Map.png" alt="" className="w-80" />
             </div>
 
             {/* TEXT */}
-            <div className="text-left">
+            <div className="text-left" data-aos="fade-left">
               <h3 className="text-2xl font-bold mb-4">
                 1. PEMETAAN MEDIA OOH DI {" "}
                 <span className="text-[#A8DF34]">AREA STRATEGIST.</span>
@@ -120,11 +132,11 @@ export default function MediaOwner() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             
             {/* KIRI - IMAGE */}
-            <div className="flex justify-center order-1 md:order-2">
+            <div className="flex justify-center order-1 md:order-2" data-aos="fade-left">
               <img src="/bahan/8.png" alt="" className="w-80" />
             </div>
 
-            <div className="text-left order-2 md:order-1">
+            <div className="text-left order-2 md:order-1" data-aos="fade-right">
               <h3 className="text-2xl font-bold mb-4">
                 2. MENJUAL INVENTORI OOH ANDA  {" "}
                 <span className="text-[#A8DF34]">DENGAN LENGKAP</span>
@@ -140,12 +152,12 @@ export default function MediaOwner() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-20">
             
             {/* KIRI - IMAGE */}
-            <div className="flex justify-center ">
+            <div className="flex justify-center " data-aos="fade-right">
               <img src="/bahan/1.png" alt="" className="w-80" />
             </div>
 
             {/* KANAN - TEXT */}
-            <div className="text-left">
+            <div className="text-left" data-aos="fade-left">
               <h3 className="text-2xl font-bold mb-4">
                 3. ALUR KERJA YANG LENGKAP DAN {" "}
                 <span className="text-[#A8DF34]">100% TRANSPARAN</span>
@@ -159,11 +171,11 @@ export default function MediaOwner() {
           {/* Step 4 */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             {/* KIRI - IMAGE */}
-            <div className="flex justify-center order-1 md:order-2">
+            <div className="flex justify-center order-1 md:order-2" data-aos="fade-left">
               <img src="/bahan/10.png" alt="" className="w-80" />
             </div>
             {/* KANAN - TEXT */}
-            <div className="text-left order-2 md:order-1">
+            <div className="text-left order-2 md:order-1" data-aos="fade-right">
               <h3 className="text-2xl font-bold mb-4">
                 4. POTENSI PENDAPATAN OLEH MEDIA OWNER DENGAN  {" "}
                 <span className="text-[#A8DF34]">ARINGAN IKLAN TRAVIO</span>
@@ -180,7 +192,7 @@ export default function MediaOwner() {
       {/* CTA Section */}
       <section className="w-full bg-white py-24 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-xl md:text-2xl text-black font-bold mb-6 leading-tight">
+          <h2 className="text-xl md:text-2xl text-black font-bold mb-6 leading-tight" data-aos="fade-up">
 BUKA REVENUE STREAM BARU DAN MAKSIMALKAN PEROFRMA TITIK MEDIA OOH ANDA. JADIKAN TRAVIO SEBAGAI MITRA PENJUALAN MEDIA OOH EKSKLUSIF UNTUK PEMBELIAN BERBASIS DATA
           </h2>
           <p className="text-gray-600 mb-8">
