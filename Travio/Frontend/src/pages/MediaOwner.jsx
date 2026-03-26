@@ -24,7 +24,7 @@ export default function MediaOwner() {
         
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-4" data-aos="fade-up">MEDIA OWNER</h1>
+          <h1 className="text-6xl sm:text-8xl font-bold mb-4" data-aos="fade-up">MEDIA OWNER</h1>
           <p className="text-lg font-bold md:text-lg tracking-wide" data-aos="fade-up" data-aos-delay="100">TINGKATKAN NILAI SEWA BILLBOARD ANDA DENGAN DUKUNGAN DATA PERFORMA</p>
         </div>
       </section>
@@ -193,10 +193,10 @@ export default function MediaOwner() {
       <section className="w-full bg-white py-24 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-xl md:text-2xl text-black font-bold mb-6 leading-tight" data-aos="fade-up">
-BUKA REVENUE STREAM BARU DAN MAKSIMALKAN PEROFRMA TITIK MEDIA OOH ANDA. JADIKAN TRAVIO SEBAGAI MITRA PENJUALAN MEDIA OOH EKSKLUSIF UNTUK PEMBELIAN BERBASIS DATA
+            TRAVIO AKAN SELALU MEMBERIKAN LAYANAN SEWA MEDIA IKLAN TERBAIK TERMASUK TRANSPARANSI INFORMASI 
           </h2>
           <p className="text-gray-600 mb-8">
-            Teknologi Terdepan dan Modern | Data Maksimum | Pilihan Media Premium | Pengukuran Pasti | Dashboard Informatif
+            Lebih dari 100+ titik di Banten | Sewa Billboard | Jasa Bikin Website | Jasa Optimisasi Google Bisnis | Dashboard Informatif
           </p>
           <button className="bg-[#A8DF34] text-black px-4 py-2 rounded-lg font-bold text-lg shadow-xl">
             HUBUNGI KAMI SEKARANG

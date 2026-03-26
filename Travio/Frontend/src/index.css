@@ -74,3 +74,91 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Admin TinyMCE editor readability overrides */
+.blog-editor .tox .tox-edit-area__iframe {
+  background: #ffffff !important;
+}
+
+.blog-editor .tox .tox-toolbar,
+.blog-editor .tox .tox-toolbar__primary,
+.blog-editor .tox .tox-menubar {
+  background: #f9fafb !important;
+}
+
+.blog-editor .tox .tox-statusbar {
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Public blog detail content readability and rich-text emphasis */
+.blog-content.ql-editor {
+  padding: 0;
+}
+
+.blog-content strong,
+.blog-content b {
+  font-weight: 700;
+  color: #111827;
+}
+
+.blog-content span[style*='font-weight'] {
+  font-weight: 700 !important;
+}
+
+/* Quill output compatibility on public detail page */
+.blog-content .ql-align-center {
+  text-align: center;
+}
+
+.blog-content .ql-align-right {
+  text-align: right;
+}
+
+.blog-content .ql-align-justify {
+  text-align: justify;
+}
+
+.blog-content .ql-size-small {
+  font-size: 0.75em;
+}
+
+.blog-content .ql-size-large {
+  font-size: 1.5em;
+}
+
+.blog-content .ql-size-huge {
+  font-size: 2.5em;
+}
+
+.blog-content .ql-font-serif {
+  font-family: Georgia, Times New Roman, serif;
+}
+
+.blog-content .ql-font-monospace {
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+}
+
+.blog-content .ql-indent-1 { padding-left: 3em; }
+.blog-content .ql-indent-2 { padding-left: 6em; }
+.blog-content .ql-indent-3 { padding-left: 9em; }
+.blog-content .ql-indent-4 { padding-left: 12em; }
+.blog-content .ql-indent-5 { padding-left: 15em; }
+.blog-content .ql-indent-6 { padding-left: 18em; }
+.blog-content .ql-indent-7 { padding-left: 21em; }
+.blog-content .ql-indent-8 { padding-left: 24em; }
+
+.blog-content ul,
+.blog-content ol {
+  margin: 0.8em 0;
+  padding-left: 1.35em;
+}
+
+.blog-content li[data-list='bullet'] {
+  display: list-item;
+  list-style-type: disc;
+}
+
+.blog-content li[data-list='ordered'] {
+  display: list-item;
+  list-style-type: decimal;
+}

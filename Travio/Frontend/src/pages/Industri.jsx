@@ -17,13 +17,13 @@ export default function Industri() {
       <section className="relative w-full h-[620px] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bahan/city.webp')" }}
+          style={{ backgroundImage: "url('/public/bahan/city.webp')" }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-4" data-aos="fade-up">
+          <h1 className="text-6xl sm:text-8xl md:text-8xl font-extrabold mb-4" data-aos="fade-up">
             HI Business People
           </h1>
           <p className="text-sm sm:text-base md:text-lg font-bold tracking-wide" data-aos="fade-up" data-aos-delay="100">
@@ -151,9 +151,13 @@ export default function Industri() {
               serta mengubah OOH dari channel awareness pasif menjadi media yang
               terukur layaknya digital ads.
             </p>
-            <button className="border border-white text-white px-4 py-2 rounded-md font-semibold shadow-md">
+            <a
+              href="/Proposal Media Billboard 2026.pdf"
+              download
+              className="inline-block border border-white text-white px-4 py-2 rounded-md font-semibold shadow-md"
+            >
               Request proposal
-            </button>
+            </a>
           </div>
           <div className="flex justify-center order-1 md:order-2" data-aos="fade-left">
             <img
@@ -169,13 +173,10 @@ export default function Industri() {
       <section className="w-full bg-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center py-20">
           <h2 className="text-lg sm:text-xl md:text-2xl text-black font-bold mb-6 leading-tight" data-aos="fade-up">
-            OTOMATISKAN PEKERJAAN YANG DILAKUKAN SECARA BERULANG DAN TEKAN
-            EFISIENSI OPERASIONAL BERSAMA TRAVIO, BUKTIKAN JIKA PERUSAHAAN ANDA
-            ADAPTIF DENGAN PERKEMBANGAN TEKNOLOGI
+            TRAVIO AKAN SELALU MEMBERIKAN LAYANAN SEWA MEDIA IKLAN TERBAIK TERMASUK TRANSPARANSI INFORMASI 
           </h2>
           <p className="text-gray-600 mb-8">
-            Teknologi Terdepan dan Modern | Data Maksimum | Kreatif Materi |
-            Pengukuran Pasti | Dashboard Informatif
+            Lebih dari 100+ titik di Banten | Sewa Billboard | Jasa Bikin Website | Jasa Optimisasi Google Bisnis | Dashboard Informatif
           </p>
           <button className="bg-[#A8DF34] text-black px-5 py-2 rounded-lg font-bold text-sm sm:text-base shadow-xl">
             HUBUNGI KAMI SEKARANG

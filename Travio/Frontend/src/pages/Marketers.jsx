@@ -25,7 +25,7 @@ export default function Marketers() {
 
         {/* Content */}
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4" data-aos="fade-up">
             MARKETERS
           </h1>
           <p className="text-lg font-bold md:text-lg tracking-wide" data-aos="fade-up" data-aos-delay="100">
@@ -279,13 +279,10 @@ export default function Marketers() {
       <section className="w-full bg-white py-24 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-xl md:text-2xl text-black font-bold mb-6 leading-tight" data-aos="fade-up">
-            PASANG IKLAN BILLBOARD DENGAN FITUR ANALITIK BERBASIS TEKNOLOGI AI
-            VISION. JELAJAHI BAGAIMANA TRAVIO DAPAT MEMBANTU BRAND ANDA MENCAPAI
-            KPI PEMASARAN ANDA.
+            TRAVIO AKAN SELALU MEMBERIKAN LAYANAN SEWA MEDIA IKLAN TERBAIK TERMASUK TRANSPARANSI INFORMASI 
           </h2>
           <p className="text-gray-600 mb-8">
-            Teknologi Terdepan dan Modern | Data Maksimum | Kreatif Materi |
-            Pengukuran Pasti | Dashboard Informatif
+            Lebih dari 100+ titik di Banten | Sewa Billboard | Jasa Bikin Website | Jasa Optimisasi Google Bisnis | Dashboard Informatif
           </p>
           <button className="bg-[#A8DF34] text-black px-4 py-2 rounded-lg font-bold text-lg shadow-xl">
             HUBUNGI KAMI SEKARANG

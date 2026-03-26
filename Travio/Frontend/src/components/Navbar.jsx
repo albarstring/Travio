@@ -1,10 +1,12 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 export default function Navbar() {
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isLightNavbar = location.pathname.startsWith('/blog');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,10 +38,26 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const desktopLinkClass = ({ isActive }) => {
+    if (isLightNavbar) {
+      return `${isActive ? 'text-[#7FB62A]' : 'text-gray-900'} hover:text-[#7FB62A] transition duration-200 font-medium text-sm lg:text-base`;
+    }
+
+    return `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`;
+  };
+
+  const mobileLinkClass = ({ isActive }) => {
+    if (isLightNavbar) {
+      return `block ${isActive ? 'text-[#7FB62A]' : 'text-gray-900'} hover:text-[#7FB62A] transition duration-200 font-medium py-2 border-b border-gray-300`;
+    }
+
+    return `block ${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20`;
+  };
+
   return (
     <nav className={`w-full fixed top-0 z-50 transition-all duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
-    } bg-transparent backdrop-blur-sm`}>
+    } ${isLightNavbar ? 'bg-white/95 border-b border-gray-200 shadow-sm' : 'bg-transparent backdrop-blur-sm'}`}>
       <div className="w-full px-4 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo */}
@@ -61,59 +79,29 @@ export default function Navbar() {
             onClick={toggleMobileMenu}
             className="md:hidden flex flex-col gap-0.5 cursor-pointer bg-transparent p-1"
           >
-            <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-            <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+            <span className={`w-4 h-0.5 ${isLightNavbar ? 'bg-gray-900' : 'bg-white'} transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
+            <span className={`w-4 h-0.5 ${isLightNavbar ? 'bg-gray-900' : 'bg-white'} transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-4 h-0.5 ${isLightNavbar ? 'bg-gray-900' : 'bg-white'} transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
           </button>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex flex-1 justify-center gap-4 lg:gap-8 ml-8">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`
-              }
-            >
+            <NavLink to="/" className={desktopLinkClass}>
               Home
             </NavLink>
-            <NavLink
-              to="/marketers"
-              className={({ isActive }) =>
-              `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`
-              }
-            >
+            <NavLink to="/marketers" className={desktopLinkClass}>
               Marketers
             </NavLink>
-            <NavLink
-              to="/media-owner"
-              className={({ isActive }) =>
-              `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`
-              }
-            >
+            <NavLink to="/media-owner" className={desktopLinkClass}>
               Media Owner
             </NavLink>
-            <NavLink
-              to="/industri"
-              className={({ isActive }) =>
-              `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`
-              }
-            >
+            <NavLink to="/industri" className={desktopLinkClass}>
               Industri
             </NavLink>
-            <NavLink
-              to="/pricing"
-              className={({ isActive }) =>
-              `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`
-              }
-            >
+            <NavLink to="/pricing" className={desktopLinkClass}>
               Pricing
             </NavLink>
-            <NavLink
-              to="/blog"
-              className={({ isActive }) =>
-                `${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg text-sm lg:text-base`
-              }
-            >
+            <NavLink to="/blog" className={desktopLinkClass}>
               Blog
             </NavLink>
           </div>
@@ -128,60 +116,46 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3 animate-in fade-in duration-300">
+          <div className={`md:hidden mt-4 pb-4 space-y-3 animate-in fade-in duration-300 ${isLightNavbar ? 'bg-white rounded-lg px-3 pt-2 border border-gray-200' : ''}`}>
             <NavLink
               to="/"
               onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `block ${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20`
-              }
+              className={mobileLinkClass}
             >
               Home
             </NavLink>
-            <a
-              href="#marketers"
-              onClick={(e) => {
-                e.preventDefault();
-                closeMobileMenu();
-                document.getElementById('marketers')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="block text-white hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20"
+            <NavLink
+              to="/marketers"
+              onClick={closeMobileMenu}
+              className={mobileLinkClass}
             >
               Marketers
-            </a>
+            </NavLink>
             <NavLink
               to="/media-owner"
               onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `block ${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20`
-              }
+              className={mobileLinkClass}
             >
               Media Owner
             </NavLink>
             <NavLink
               to="/industri"
               onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `block ${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20`
-              }
+              className={mobileLinkClass}
             >
               Industri
             </NavLink>
             <NavLink
               to="/pricing"
               onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `block ${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20`
-              }
+              className={mobileLinkClass}
             >
               Pricing
             </NavLink>
             <NavLink
               to="/blog"
               onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `block ${isActive ? 'text-[#A8DF34]' : 'text-white'} hover:text-[#A8DF34] transition duration-200 font-medium drop-shadow-lg py-2 border-b border-white border-opacity-20`
-              }
+              className={mobileLinkClass}
             >
               Blog
             </NavLink>
