@@ -38,3 +38,18 @@ CREATE TABLE IF NOT EXISTS blogs (
   INDEX idx_slug   (slug),
   INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ------------------------------------------------------------
+-- Table: contact_messages
+-- ------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS contact_messages (
+  id         INT          NOT NULL AUTO_INCREMENT,
+  name       VARCHAR(120) NOT NULL,
+  email      VARCHAR(190) NOT NULL,
+  phone      VARCHAR(30)  DEFAULT NULL,
+  company    VARCHAR(190) DEFAULT NULL,
+  message    TEXT         NOT NULL,
+  created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  INDEX idx_contact_created_at (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

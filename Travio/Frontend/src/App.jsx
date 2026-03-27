@@ -16,6 +16,7 @@ import ProtectedRoute from './components/admin/ProtectedRoute'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminBlogList from './pages/admin/AdminBlogList'
+import AdminMessages from './pages/admin/AdminMessages'
 
 function RouteScrollHandler() {
   const location = useLocation()
@@ -75,6 +76,7 @@ function App() {
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
           <Route path="/admin/blogs"     element={<ProtectedRoute><AdminBlogList /></ProtectedRoute>} />
+          <Route path="/admin/messages"  element={<ProtectedRoute><AdminMessages /></ProtectedRoute>} />
         </Routes>
       </Router>
     </AdminAuthProvider>

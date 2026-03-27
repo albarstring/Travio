@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const AdminAuthContext = createContext(null);
 
@@ -36,6 +36,7 @@ export const AdminAuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAdminAuth = () => {
   const ctx = useContext(AdminAuthContext);
   if (!ctx) throw new Error('useAdminAuth must be used inside AdminAuthProvider');

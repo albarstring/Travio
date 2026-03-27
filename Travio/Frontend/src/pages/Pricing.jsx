@@ -225,7 +225,7 @@ export default function Pricing() {
             </div>
 
             {/* Card Enterprise */}
-            <div className="bg-[#121212] rounded-2xl p-8 text-white border border-white shadow-lg min-h-[820px]" data-aos="fade-up" data-aos-delay="300">
+            <div className="bg-[#121212] rounded-2xl p-8 text-white border border-white shadow-lg min-h-[800px]" data-aos="fade-up" data-aos-delay="300">
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-white text-black px-6 py-1 rounded-full text-xl font-bold">
                 TERPOPULER
               </div>
@@ -352,7 +352,7 @@ export default function Pricing() {
               {/* BASIC */}
               <div className="bg-[#121212] rounded-2xl p-6 flex flex-col h-full text-left">
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Basic</h3>
+                  <h3 className="text-2xl font-bold mb-2">Basic</h3>
                   <p className="text-gray-400 text-sm">Billboard Only</p>
                 </div>
 
@@ -374,9 +374,9 @@ export default function Pricing() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Pro</h3>
+                  <h3 className="text-2xl font-bold mb-2">Pro</h3>
                   <p className="text-gray-400 text-sm">
-                    Billboard + AI Analytics
+                    Website Premium + GBP
                   </p>
                 </div>
 
@@ -394,9 +394,9 @@ export default function Pricing() {
               {/* ENTERPRISE */}
               <div className="bg-[#121212] rounded-2xl p-6 flex flex-col h-full text-left">
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Enterprise</h3>
+                  <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
                   <p className="text-gray-400 text-sm">
-                    Billboard + AI Analytics + Creative Ads
+                    Billboard + AI Analytics + Website Premium + GPB
                   </p>
                 </div>
 

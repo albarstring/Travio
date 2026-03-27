@@ -9,6 +9,7 @@ require('dotenv').config();
 const authRoutes   = require('./routes/auth.routes');
 const blogRoutes   = require('./routes/blog.routes');
 const uploadRoutes = require('./routes/upload.routes');
+const contactRoutes = require('./routes/contact.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 const { errorResponse } = require('./utils/response.util');
 
@@ -81,6 +82,7 @@ app.use(
 app.use('/api/auth',   authRoutes);
 app.use('/api/blog',   blogRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Health-check
 app.get('/api/health', (_req, res) => {

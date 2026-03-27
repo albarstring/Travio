@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import CountUp from "react-countup";
-import { fetchPublishedBlogs } from "../services/adminApi";
+import { fetchPublishedBlogs, submitContactMessage } from "../services/adminApi";
 import { resolveImageUrl } from "../utils/imageUrl";
 import { toExcerpt } from "../utils/content";
 import "aos/dist/aos.css";
@@ -15,6 +15,8 @@ export default function Home() {
   const [blogPosts, setBlogPosts] = useState([]);
   const [blogLoading, setBlogLoading] = useState(true);
   const [blogError, setBlogError] = useState("");
+  const [contactSending, setContactSending] = useState(false);
+  const [contactStatus, setContactStatus] = useState({ type: "", message: "" });
 
   useEffect(() => {
     AOS.init({
@@ -60,6 +62,43 @@ export default function Home() {
       year: "numeric",
     });
 
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
+      company: String(formData.get("company") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+    };
+
+    if (!payload.name || !payload.email || !payload.message) {
+      setContactStatus({
+        type: "error",
+        message: "Name, Email, dan Message wajib diisi.",
+      });
+      return;
+    }
+
+    try {
+      setContactSending(true);
+      setContactStatus({ type: "", message: "" });
+      await submitContactMessage(payload);
+      setContactStatus({ type: "success", message: "Pesan berhasil dikirim." });
+      form.reset();
+    } catch (err) {
+      setContactStatus({
+        type: "error",
+        message: err.message || "Gagal mengirim pesan.",
+      });
+    } finally {
+      setContactSending(false);
+    }
+  };
+
   return (
     <div className="w-full relative overflow-x-hidden">
       {/* Fixed Background Image */}
@@ -67,7 +106,7 @@ export default function Home() {
         className="fixed inset-0 bg-cover bg-center bg-no-repeat -z-10"
         style={{ backgroundImage: "url('/bahan/Images-Website.webp')" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
       {/* Hero Section */}
@@ -84,13 +123,18 @@ export default function Home() {
               {heroLabel}
             </span>
           </h2>
-          <p className="font-light text-xl md:text-2xl text-white mt-10">
-            TERSEDIA BERBAGAI MACAM LAYANAN EKSKLUSIF
+          <p
+            className="text-2xl md:text-3xl font-bold mb-6 mt-2"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Kami bantu pertumbuhan brand Anda secara organik dan massive
           </p>
-
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl font-bold mt-2">
-            MELAYANI JASA SEWA BILLBOARD | BUAT WEBSITE | GOOGLE PROFILE BISNIS
-            OPTIMISASI
+          <p className="font-light text-xl md:text-2xl text-white mt-14">
+            Tersedia berbagai macam layanan eksklusif
+          </p>
+          <p className="text-2xl md:text-3xl mb-8 max-w-4xl font-bold mt-2">
+            Melayani Jasa Sewa Billboard | Jasa Bikin Website | Jasa Optimasi Google Business Profile 
           </p>
 
           <div data-aos="fade-up" data-aos-delay="300">
@@ -231,9 +275,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
             <img
-              src="/bahan/mobil.png"
+              src="/bahan/website.webp"
               alt="OOH Media Measurement"
-              className="w-full rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105"
+              className="w-full transition-transform duration-300 ease-out hover:scale-105"
             />
           </div>
           <div data-aos="fade-left">
@@ -529,41 +573,59 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div data-aos="fade-right">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="text"
+                    name="name"
                     placeholder="Name"
+                    required
                     className="w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-400 focus:border-[#A8DF34] focus:outline-none"
                   />
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email"
+                    required
                     className="w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-400 focus:border-[#A8DF34] focus:outline-none"
                   />
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="No Handphone"
                     className="w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-400 focus:border-[#A8DF34] focus:outline-none"
                   />
                   <input
                     type="text"
+                    name="company"
                     placeholder="Company"
                     className="w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-400 focus:border-[#A8DF34] focus:outline-none"
                   />
                 </div>
                 <textarea
+                  name="message"
                   placeholder="Message"
                   rows="4"
+                  required
                   className="w-full px-4 py-3 bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-400 focus:border-[#A8DF34] focus:outline-none resize-none"
                 ></textarea>
+                {contactStatus.message && (
+                  <p
+                    className={`text-sm ${
+                      contactStatus.type === "success" ? "text-[#A8DF34]" : "text-red-400"
+                    }`}
+                  >
+                    {contactStatus.message}
+                  </p>
+                )}
                 <button
                   type="submit"
+                  disabled={contactSending}
                   className="w-full bg-[#A8DF34] text-black px-8 py-3 rounded-lg transition font-semibold text-lg"
                 >
-                  Sent Message
+                  {contactSending ? "Sending..." : "Sent Message"}
                 </button>
               </form>
             </div>

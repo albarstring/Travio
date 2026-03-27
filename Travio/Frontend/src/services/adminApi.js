@@ -72,3 +72,17 @@ export const uploadImage = (file) => {
     body: formData,
   }).then(handleResponse);
 };
+
+// Contact messages (public submit)
+export const submitContactMessage = (payload) =>
+  fetch(`${BASE_URL}/contact`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify(payload),
+  }).then(handleResponse);
+
+// Contact messages (admin list)
+export const fetchAdminMessages = (page = 1, limit = 20) =>
+  fetch(`${BASE_URL}/contact/admin/all?page=${page}&limit=${limit}`, {
+    headers: headers(),
+  }).then(handleResponse);

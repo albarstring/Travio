@@ -7,20 +7,31 @@ export default function QuillEditor({ value, onChange, onReady, placeholder = ''
   const quillRef = useRef(null);
   const isInitializing = useRef(false);
   const onChangeRef = useRef(onChange);
+  const onReadyRef = useRef(onReady);
+  const placeholderRef = useRef(placeholder);
+  const initialValueRef = useRef(value);
 
   useEffect(() => {
     onChangeRef.current = onChange;
   }, [onChange]);
 
   useEffect(() => {
+    onReadyRef.current = onReady;
+  }, [onReady]);
+
+  useEffect(() => {
+    placeholderRef.current = placeholder;
+  }, [placeholder]);
+
+  useEffect(() => {
     if (!containerRef.current || isInitializing.current) return;
-    
+
     isInitializing.current = true;
 
     // Initialize Quill instance
     quillRef.current = new Quill(containerRef.current, {
       theme: 'snow',
-      placeholder: placeholder,
+      placeholder: placeholderRef.current,
       modules: {
         toolbar: [
           ['bold', 'italic', 'underline', 'blockquote'],
@@ -32,13 +43,13 @@ export default function QuillEditor({ value, onChange, onReady, placeholder = ''
       },
     });
 
-    if (typeof onReady === 'function') {
-      onReady(quillRef.current);
+    if (typeof onReadyRef.current === 'function') {
+      onReadyRef.current(quillRef.current);
     }
 
     // Set initial content
-    if (value) {
-      quillRef.current.root.innerHTML = value;
+    if (initialValueRef.current) {
+      quillRef.current.root.innerHTML = initialValueRef.current;
     }
 
     // Listen to text changes
