@@ -121,7 +121,7 @@ export default function Blog() {
             {/* Latest posts */}
             <div className="mb-14">
               <div className="flex items-center justify-between mb-6" data-aos="fade-up">
-                <h3 className="text-2xl font-bold text-gray-900">Artikel Terbaru</h3>
+                <h3 className="text-2xl font-bold text-gray-900">Berita Terbaru</h3>
                 <div className="h-px bg-gray-200 flex-1 ml-6" />
               </div>
 

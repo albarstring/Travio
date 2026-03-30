@@ -277,7 +277,7 @@ export default function Home() {
             <img
               src="/bahan/website.webp"
               alt="OOH Media Measurement"
-              className="w-full transition-transform duration-300 ease-out hover:scale-105"
+              className="w-full scale-105 transition-transform duration-500 ease-out hover:scale-110"
             />
           </div>
           <div data-aos="fade-left">
