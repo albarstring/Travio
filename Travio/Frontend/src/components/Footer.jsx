@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/public/bahan/logofooter.webp" alt="" className="h-20 transition-transform duration-300 ease-out hover:scale-105" />
+              <img src="/bahan/logofooter.webp" alt="" className="h-20 transition-transform duration-300 ease-out hover:scale-105" />
             </div>
           </div>
           <div>

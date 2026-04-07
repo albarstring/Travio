@@ -65,7 +65,7 @@ export default function Navbar() {
             <Link to="/" className="block">
               <div className="h-10 w-32 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/public/bahan/Logo2.png"
+                  src="/bahan/Logo2.png"
                   alt="Logo"
                   className="h-14 w-auto transition-transform duration-300 ease-out hover:scale-125"
                 />
