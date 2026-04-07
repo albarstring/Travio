@@ -42,7 +42,7 @@ const limiter = rateLimit({
   legacyHeaders: false,
 });
 
-app.use(limiter);
+app.use('/api', limiter);
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
@@ -57,9 +57,14 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/contact', contactRoutes);
 
-// Health check
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Backend is running' });
+// Root health-check
+app.get('/', (_req, res) => {
+  res.status(200).json({ success: true, message: 'Travio backend is running on Vercel' });
+});
+
+// Health-check
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({ success: true, message: 'Server is running' });
 });
 
 // Error handling
