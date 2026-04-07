@@ -110,7 +110,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full h-screen">
+      <section className="relative w-full h-screen ">
         <div className="relative z-10 max-w-6xl mx-auto px-4 h-full flex flex-col justify-center items-center text-white text-center">
           <h2
             className="text-4xl md:text-6xl font-bold mb-4"
@@ -133,7 +133,7 @@ export default function Home() {
           <p className="font-light text-xl md:text-2xl text-white mt-14">
             Tersedia berbagai macam layanan eksklusif
           </p>
-          <p className="text-2xl md:text-3xl mb-8 max-w-4xl font-bold mt-2">
+          <p className="text-2xl md:text-3xl mb-8 max-w-full md:max-w-4xl font-bold mt-2">
             Melayani Jasa Sewa Billboard | Jasa Bikin Website | Jasa Optimasi Google Business Profile 
           </p>
 
@@ -273,7 +273,7 @@ export default function Home() {
       {/* Traffic Measurement Section */}
       <section className="w-full bg-[#181818] py-28">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div data-aos="fade-right">
+          <div className="overflow-hidden" data-aos="fade-right">
             <img
               src="/bahan/website.webp"
               alt="OOH Media Measurement"
