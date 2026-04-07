@@ -1,0 +1,293 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  STUDENT
+  ADMIN
+}
+
+enum CourseLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum TransactionStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  password      String
+  role          UserRole  @default(STUDENT)
+  avatar        String?
+  phone         String?
+  bio           String?
+  isActive      Boolean   @default(true)
+  emailVerified Boolean   @default(false)
+  resetToken    String?
+  resetExpires  DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  enrollments  Enrollment[]
+  progress     Progress[]
+  quizAttempts QuizAttempt[]
+  transactions Transaction[]
+  certificates Certificate[]
+  notes        Note[]
+  activities   Activity[]
+  Course       Course[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  icon        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  courses Course[]
+
+  @@index([slug])
+}
+
+model Course {
+  id               String      @id @default(uuid())
+  title            String
+  slug             String      @unique
+  description      String      @db.Text
+  shortDescription String?
+  thumbnail        String?
+  price            Decimal     @default(0) @db.Decimal(10, 2)
+  level            CourseLevel @default(BEGINNER)
+  categoryId       String
+  instructorId     String? // Admin yang membuat course
+  duration         Int         @default(0) // in minutes
+  totalLessons     Int         @default(0)
+  rating           Decimal     @default(0) @db.Decimal(3, 2)
+  totalRatings     Int         @default(0)
+  totalStudents    Int         @default(0)
+  isPublished      Boolean     @default(false)
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  // Relations
+  category     Category      @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  instructor   User?         @relation(fields: [instructorId], references: [id])
+  lessons      Lesson[]
+  enrollments  Enrollment[]
+  quizzes      Quiz[]
+  certificates Certificate[]
+  Transaction  Transaction[]
+
+  @@index([categoryId])
+  @@index([slug])
+  @@index([isPublished])
+}
+
+model Lesson {
+  id          String   @id @default(uuid())
+  courseId    String
+  title       String
+  description String?  @db.Text
+  videoUrl    String?
+  duration    Int      @default(0) // in minutes
+  order       Int      @default(0)
+  isPreview   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  course   Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  progress Progress[]
+  notes    Note[]
+
+  @@index([courseId])
+  @@index([courseId, order])
+}
+
+model Enrollment {
+  id          String         @id @default(uuid())
+  userId      String
+  courseId    String
+  progress    Decimal        @default(0) @db.Decimal(5, 2) // percentage
+  status      ProgressStatus @default(NOT_STARTED)
+  enrolledAt  DateTime       @default(now())
+  completedAt DateTime?
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@index([userId])
+  @@index([courseId])
+}
+
+model Progress {
+  id              String         @id @default(uuid())
+  userId          String
+  lessonId        String
+  courseId        String
+  status          ProgressStatus @default(NOT_STARTED)
+  watchedDuration Int            @default(0) // in seconds
+  completedAt     DateTime?
+  updatedAt       DateTime       @updatedAt
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId, courseId])
+}
+
+model Quiz {
+  id           String   @id @default(uuid())
+  courseId     String
+  title        String
+  description  String?  @db.Text
+  duration     Int      @default(0) // in minutes
+  passingScore Int      @default(70) // percentage
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  course    Course         @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  questions QuizQuestion[]
+  attempts  QuizAttempt[]
+
+  @@index([courseId])
+}
+
+model QuizQuestion {
+  id            String   @id @default(uuid())
+  quizId        String
+  question      String   @db.Text
+  type          String   @default("multiple_choice") // multiple_choice, true_false, short_answer
+  options       Json? // For multiple choice: {a: "option1", b: "option2", ...}
+  correctAnswer String
+  points        Int      @default(1)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+
+  // Relations
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@index([quizId])
+}
+
+model QuizAttempt {
+  id          String    @id @default(uuid())
+  userId      String
+  quizId      String
+  score       Decimal   @db.Decimal(5, 2)
+  totalScore  Decimal   @db.Decimal(5, 2)
+  percentage  Decimal   @db.Decimal(5, 2)
+  passed      Boolean
+  answers     Json // Store user answers
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([quizId])
+}
+
+model Transaction {
+  id            String            @id @default(uuid())
+  userId        String
+  courseId      String?
+  amount        Decimal           @db.Decimal(10, 2)
+  status        TransactionStatus @default(PENDING)
+  paymentMethod String?
+  paymentProof  String?
+  notes         String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  // Relations
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course? @relation(fields: [courseId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Certificate {
+  id             String   @id @default(uuid())
+  userId         String
+  courseId       String
+  certificateUrl String
+  issuedAt       DateTime @default(now())
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@index([userId])
+  @@index([courseId])
+}
+
+model Note {
+  id        String   @id @default(uuid())
+  userId    String
+  lessonId  String
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@index([userId, lessonId])
+}
+
+model Activity {
+  id          String   @id @default(uuid())
+  userId      String
+  type        String // lesson_completed, quiz_completed, course_enrolled, etc.
+  description String
+  metadata    Json? // Additional data
+  createdAt   DateTime @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+}

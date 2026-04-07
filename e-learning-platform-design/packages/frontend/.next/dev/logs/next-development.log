@@ -1,0 +1,736 @@
+[00:00:33.064] Server  LOG      ✓ Ready in 21.3s
+[00:00:36.179] Server  LOG      ○ Compiling / ...
+[00:00:45.516] Server  ERROR    ⨯ ./packages/frontend/components/navbar.tsx:23:1
+Module not found: Can't resolve '@/lib/auth'
+  21 | } from "@/components/ui/sheet"
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+> 23 | import { getSession, logout } from "@/lib/auth"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  24 | import { cn } from "@/lib/utils"
+  25 |
+  26 | export function Navbar() {
+
+Import map: aliased to relative './lib/auth' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./packages/frontend/app/page.tsx:7:1
+Module not found: Can't resolve '@/lib/mock-data'
+   5 | import { Card } from "@/components/ui/card"
+   6 | import { Star, Users, Play, ArrowRight } from "lucide-react"
+>  7 | import { mockCourses } from "@/lib/mock-data"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Navbar } from "@/components/navbar"
+   9 |
+  10 | export default function HomePage() {
+
+Import map: aliased to relative './lib/mock-data' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./packages/frontend/components/navbar.tsx:24:1
+Module not found: Can't resolve '@/lib/utils'
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+  23 | import { getSession, logout } from "@/lib/auth"
+> 24 | import { cn } from "@/lib/utils"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  25 |
+  26 | export function Navbar() {
+  27 |   const router = useRouter()
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./packages/frontend/components/ui/button.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  3 | import { cva, type VariantProps } from 'class-variance-authority'
+  4 |
+> 5 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const buttonVariants = cva(
+  8 |   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/button.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/button.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./packages/frontend/components/ui/card.tsx:3:1
+Module not found: Can't resolve '@/lib/utils'
+  1 | import * as React from 'react'
+  2 |
+> 3 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | function Card({ className, ...props }: React.ComponentProps<'div'>) {
+  6 |   return (
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/card.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/card.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./packages/frontend/components/ui/dropdown-menu.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function DropdownMenu({
+  10 |   ...props
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./packages/frontend/components/ui/sheet.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { XIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  10 |   return <SheetPrimitive.Root data-slot="sheet" {...props} />
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:52.088] Browser ERROR   uncaughtError: Error: ./packages/frontend/components/navbar.tsx:23:1
+Module not found: Can't resolve '@/lib/auth'
+  21 | } from "@/components/ui/sheet"
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+> 23 | import { getSession, logout } from "@/lib/auth"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  24 | import { cn } from "@/lib/utils"
+  25 |
+  26 | export function Navbar() {
+
+Import map: aliased to relative './lib/auth' inside of [project]/packages/frontend
+
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:52.353] Browser ERROR   ./packages/frontend/components/navbar.tsx:23:1
+Module not found: Can't resolve '@/lib/auth'
+  21 | } from "@/components/ui/sheet"
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+> 23 | import { getSession, logout } from "@/lib/auth"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  24 | import { cn } from "@/lib/utils"
+  25 |
+  26 | export function Navbar() {
+
+Import map: aliased to relative './lib/auth' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.353] Browser ERROR   ./packages/frontend/app/page.tsx:7:1
+Module not found: Can't resolve '@/lib/mock-data'
+   5 | import { Card } from "@/components/ui/card"
+   6 | import { Star, Users, Play, ArrowRight } from "lucide-react"
+>  7 | import { mockCourses } from "@/lib/mock-data"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Navbar } from "@/components/navbar"
+   9 |
+  10 | export default function HomePage() {
+
+Import map: aliased to relative './lib/mock-data' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.353] Browser ERROR   ./packages/frontend/components/navbar.tsx:24:1
+Module not found: Can't resolve '@/lib/utils'
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+  23 | import { getSession, logout } from "@/lib/auth"
+> 24 | import { cn } from "@/lib/utils"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  25 |
+  26 | export function Navbar() {
+  27 |   const router = useRouter()
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.353] Browser ERROR   ./packages/frontend/components/ui/button.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  3 | import { cva, type VariantProps } from 'class-variance-authority'
+  4 |
+> 5 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const buttonVariants = cva(
+  8 |   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/button.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/button.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.353] Browser ERROR   ./packages/frontend/components/ui/card.tsx:3:1
+Module not found: Can't resolve '@/lib/utils'
+  1 | import * as React from 'react'
+  2 |
+> 3 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | function Card({ className, ...props }: React.ComponentProps<'div'>) {
+  6 |   return (
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/card.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/card.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/ui/dropdown-menu.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function DropdownMenu({
+  10 |   ...props
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/ui/sheet.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { XIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  10 |   return <SheetPrimitive.Root data-slot="sheet" {...props} />
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/navbar.tsx:23:1
+Module not found: Can't resolve '@/lib/auth'
+  21 | } from "@/components/ui/sheet"
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+> 23 | import { getSession, logout } from "@/lib/auth"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  24 | import { cn } from "@/lib/utils"
+  25 |
+  26 | export function Navbar() {
+
+Import map: aliased to relative './lib/auth' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/app/page.tsx:7:1
+Module not found: Can't resolve '@/lib/mock-data'
+   5 | import { Card } from "@/components/ui/card"
+   6 | import { Star, Users, Play, ArrowRight } from "lucide-react"
+>  7 | import { mockCourses } from "@/lib/mock-data"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Navbar } from "@/components/navbar"
+   9 |
+  10 | export default function HomePage() {
+
+Import map: aliased to relative './lib/mock-data' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/navbar.tsx:24:1
+Module not found: Can't resolve '@/lib/utils'
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+  23 | import { getSession, logout } from "@/lib/auth"
+> 24 | import { cn } from "@/lib/utils"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  25 |
+  26 | export function Navbar() {
+  27 |   const router = useRouter()
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/ui/button.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  3 | import { cva, type VariantProps } from 'class-variance-authority'
+  4 |
+> 5 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const buttonVariants = cva(
+  8 |   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/button.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/button.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/ui/card.tsx:3:1
+Module not found: Can't resolve '@/lib/utils'
+  1 | import * as React from 'react'
+  2 |
+> 3 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | function Card({ className, ...props }: React.ComponentProps<'div'>) {
+  6 |   return (
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/card.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/card.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/ui/dropdown-menu.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function DropdownMenu({
+  10 |   ...props
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.354] Browser ERROR   ./packages/frontend/components/ui/sheet.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { XIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  10 |   return <SheetPrimitive.Root data-slot="sheet" {...props} />
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/components/navbar.tsx:23:1
+Module not found: Can't resolve '@/lib/auth'
+  21 | } from "@/components/ui/sheet"
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+> 23 | import { getSession, logout } from "@/lib/auth"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  24 | import { cn } from "@/lib/utils"
+  25 |
+  26 | export function Navbar() {
+
+Import map: aliased to relative './lib/auth' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/app/page.tsx:7:1
+Module not found: Can't resolve '@/lib/mock-data'
+   5 | import { Card } from "@/components/ui/card"
+   6 | import { Star, Users, Play, ArrowRight } from "lucide-react"
+>  7 | import { mockCourses } from "@/lib/mock-data"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Navbar } from "@/components/navbar"
+   9 |
+  10 | export default function HomePage() {
+
+Import map: aliased to relative './lib/mock-data' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/components/navbar.tsx:24:1
+Module not found: Can't resolve '@/lib/utils'
+  22 | import { Home, LogOut, LayoutDashboard, User, BookOpen, Settings, Menu, X } from "lucide-react"
+  23 | import { getSession, logout } from "@/lib/auth"
+> 24 | import { cn } from "@/lib/utils"
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  25 |
+  26 | export function Navbar() {
+  27 |   const router = useRouter()
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/components/ui/button.tsx:5:1
+Module not found: Can't resolve '@/lib/utils'
+  3 | import { cva, type VariantProps } from 'class-variance-authority'
+  4 |
+> 5 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const buttonVariants = cva(
+  8 |   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/button.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/button.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/components/ui/card.tsx:3:1
+Module not found: Can't resolve '@/lib/utils'
+  1 | import * as React from 'react'
+  2 |
+> 3 | import { cn } from '@/lib/utils'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | function Card({ className, ...props }: React.ComponentProps<'div'>) {
+  6 |   return (
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/card.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/card.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/components/ui/dropdown-menu.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function DropdownMenu({
+  10 |   ...props
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/dropdown-menu.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:52.612] Browser ERROR   ./packages/frontend/components/ui/sheet.tsx:7:1
+Module not found: Can't resolve '@/lib/utils'
+   5 | import { XIcon } from 'lucide-react'
+   6 |
+>  7 | import { cn } from '@/lib/utils'
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  10 |   return <SheetPrimitive.Root data-slot="sheet" {...props} />
+
+Import map: aliased to relative './lib/utils' inside of [project]/packages/frontend
+
+Import traces:
+  Client Component Browser:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component Browser]
+    ./packages/frontend/components/navbar.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Client Component Browser]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./packages/frontend/components/ui/sheet.tsx [Client Component SSR]
+    ./packages/frontend/components/navbar.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Client Component SSR]
+    ./packages/frontend/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found

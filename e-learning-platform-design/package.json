@@ -1,0 +1,18 @@
+{
+  "name": "e-learning-platform",
+  "version": "1.0.0",
+  "description": "E-learning platform with Next.js frontend and Node.js backend",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter @e-learning/frontend start",
+    "lint": "pnpm -r lint",
+    "type-check": "pnpm -r type-check",
+    "db:push": "pnpm --filter @e-learning/backend db:push",
+    "db:migrate": "pnpm --filter @e-learning/backend db:migrate",
+    "db:seed": "pnpm --filter @e-learning/backend db:seed",
+    "db:studio": "pnpm --filter @e-learning/backend db:studio"
+  },
+  "devDependencies": {}
+}

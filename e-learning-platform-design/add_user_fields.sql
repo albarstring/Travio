@@ -1,0 +1,7 @@
+-- Add missing columns to users table
+ALTER TABLE `users` 
+  ADD COLUMN IF NOT EXISTS `isVerified` BOOLEAN NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS `isActive` BOOLEAN NOT NULL DEFAULT true,
+  ADD COLUMN IF NOT EXISTS `violationCount` INT NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS `lastViolationAt` DATETIME(3) NULL;
+

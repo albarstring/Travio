@@ -1,0 +1,9 @@
+# Workspace Configuration
+
+# Monorepo configuration untuk pnpm workspaces
+packages:
+  - 'packages/**'
+  - 'docs'
+
+# Jangan manage lockfile di root
+shared-workspace-lockfile: true

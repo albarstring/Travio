@@ -1,0 +1,30 @@
+{
+  "name": "@e-learning/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
+    "seed:instructor": "tsx src/scripts/seed-instructor-profile.ts",
+    "seed:student": "tsx src/scripts/fix-student-name.ts",
+    "seed:usernames": "tsx src/scripts/fix-usernames.ts"
+  },
+  "prisma": {
+    "seed": "tsx src/prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "5.22.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
+    "@types/node": "^20",
+    "prisma": "5.22.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5"
+  }
+}
