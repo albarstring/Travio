@@ -84,6 +84,11 @@ app.use('/api/blog',   blogRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/contact', contactRoutes);
 
+// Root health-check
+app.get('/', (_req, res) => {
+  res.status(200).json({ success: true, message: 'Travio backend is running' });
+});
+
 // Health-check
 app.get('/api/health', (_req, res) => {
   res.status(200).json({ success: true, message: 'Server is running' });
