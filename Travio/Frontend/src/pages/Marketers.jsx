@@ -18,7 +18,7 @@ export default function Marketers() {
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/public/bahan/computer.webp')" }}
+          style={{ backgroundImage: "url('/bahan/computer.webp')" }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
