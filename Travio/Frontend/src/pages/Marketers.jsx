@@ -59,7 +59,7 @@ export default function Marketers() {
               {/* Header Icon */}
               <div className="bg-[#A8DF34] py-6 flex justify-center overflow-hidden">
                 <img
-                  src="/public/bahan/eye1.png"
+                  src="/bahan/eye1.png"
                   alt=""
                   className="h-8 w-8 scale-125"
                 />
