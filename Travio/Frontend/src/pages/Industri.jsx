@@ -17,7 +17,7 @@ export default function Industri() {
       <section className="relative w-full h-[620px] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/public/bahan/city.webp')" }}
+          style={{ backgroundImage: "url('/bahan/city.webp')" }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
